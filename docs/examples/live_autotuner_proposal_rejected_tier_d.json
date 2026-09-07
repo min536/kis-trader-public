@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1.0",
+  "proposal_id": "atp_20260603_rejected_0042",
+  "created_at": "2026-06-03T13:05:00+09:00",
+  "generated_by": {
+    "kind": "script",
+    "name": "candidate_generator",
+    "version": "0.0.0-dev"
+  },
+  "mode": "shadow",
+  "status": "rejected",
+  "reason": "INTENTIONAL NEGATIVE EXAMPLE: a proposal that tries to touch a Tier D (forbidden) parameter. A correct validator must reject this outright, regardless of evidence or mode.",
+  "evidence": [
+    {
+      "source_type": "backtest",
+      "source_id": "bt_run_20260603_130444",
+      "source_path": "results/backtests/bt_run_20260603_130444.json",
+      "generated_at": "2026-06-03T13:04:44+09:00",
+      "summary": "Backtest claims higher PnL when switching environment. IRRELEVANT — Tier D is never eligible no matter what evidence claims.",
+      "limitations": "Proxy evidence; and immaterial because the target parameter is forbidden.",
+      "confidence": "low",
+      "notes": "Evidence cannot rescue a Tier D change."
+    }
+  ],
+  "baseline": {
+    "baseline_id": "settings_session_20260603",
+    "captured_at": "2026-06-03T09:00:00+09:00",
+    "source": "app/auth/settings.py (read-only)",
+    "values": {
+      "kis_env": "mock"
+    }
+  },
+  "changes": [
+    {
+      "parameter": "kis_env",
+      "from_value": "mock",
+      "to_value": "live",
+      "type": "str",
+      "risk_tier": "D",
+      "eligible_phase": null,
+      "bound_min": null,
+      "bound_max": null,
+      "max_step": null,
+      "validation_status": "rejected",
+      "rationale": "(declared) switch to live for higher returns",
+      "notes": "FORBIDDEN: KIS_ENV / mock<->live switch is Tier D. Also covers credentials, account ids, broker base URLs, token paths, order-side forcing, and anything disabling risk/order guards, reconciliation, runtime-state trust, security hardening, or the session lock."
+    }
+  ],
+  "constraints_checked": {
+    "whitelist_only": false,
+    "bounds": null,
+    "cross_parameter": null,
+    "single_active_bundle": true,
+    "checked_at": "2026-06-03T13:05:30+09:00",
+    "checker": "proposal_constraints@0.0.0-dev"
+  },
+  "risk_review": null,
+  "approval": null,
+  "ttl": {
+    "ttl_seconds": 86400,
+    "expires_at": "2026-06-04T13:05:00+09:00"
+  },
+  "rollback": {
+    "rollback_baseline_id": "settings_session_20260603",
+    "rollback_required": false
+  },
+  "audit": {
+    "events": [
+      {
+        "at": "2026-06-03T13:05:00+09:00",
+        "actor": "candidate_generator",
+        "event": "created",
+        "detail": "proposal targeting a Tier D parameter"
+      },
+      {
+        "at": "2026-06-03T13:05:30+09:00",
+        "actor": "proposal_constraints",
+        "event": "rejected",
+        "detail": "Tier D parameter 'kis_env' is forbidden for autotuner; whitelist_only check failed. Hard reject."
+      }
+    ]
+  }
+}

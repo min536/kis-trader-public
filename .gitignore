@@ -1,0 +1,95 @@
+.venv/
+.env
+.env.*
+!.env.example
+.token_cache*.json
+logs/
+data/
+results/
+reports/
+__pycache__/
+*.pyc
+.DS_Store
+# .antigravity/
+.vscode/
+# root runtime archive only — keep docs/archive/ tracked
+/archive/
+
+.claude/worktrees/
+
+# local operator/agent workspace outputs (proposals, audits, temporary bundles)
+_workspace/
+
+# generated runtime data (all runtime files — changes every session)
+data/account_scope_meta.json
+data/cycle_snapshots*.jsonl
+data/performance_snapshots*.jsonl
+data/runtime_state*.json
+data/overseas_probe_latest.json
+
+# research loop runtime outputs (snapshots, proposals, evaluations, registry, shadow watch)
+research/snapshots/
+research/proposals/
+research/evaluations/
+research/proposal_registry.json
+research/shadow_watch/
+
+# generated candidate YAMLs and their backtest summaries
+backtester/strategies/*_candidate.kis.yaml
+backtester/reports/*_candidate_summary.json
+
+# parity / backtest run reports (generated output — not source)
+backtester/engine_backtest/reports/
+workspace/data.js
+
+# fablize goal-state (Claude Code / Codex shared, per-machine runtime state)
+.fablize/
+CLAUDE.md.fablize-bak.*
+
+# machine-local agent / IDE state (not portable, may expose local paths)
+.claude/settings.json
+.claude/settings.local.json
+.claude/launch.json
+.claude/tdd-guard/
+.codex/hooks.json
+.codex/memory-bank/
+
+# local build metadata
+*.tsbuildinfo
+
+# credentials, private keys, and local databases
+.envrc
+.direnv/
+.npmrc
+.pypirc
+.netrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.sqlite
+*.sqlite3
+*.db
+credentials*.json
+client_secret*.json
+service-account*.json
+
+# generated design artifacts derived from local runtime/account data
+workspace/claude-design/**/*.tar.gz
+workspace/claude-design/**/chats/
+workspace/claude-design/**/project/screenshots/
+workspace/claude-design/**/project/.thumbnail
+workspace/claude-design/**/project/*.html
+
+# Public snapshot boundary
+.fablize/
+.audit/
+.private/
+*.bundle
+*.log
+*.jsonl
+node_modules/
+dist/
+!workspace/claude-design/kis-trader-v2/project/kis-trader Ops Console.html

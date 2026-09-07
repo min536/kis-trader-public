@@ -1,0 +1,74 @@
+# Large data / generated / runtime outputs
+data/
+workspace/
+archive/
+research/
+logs/
+results/
+
+# Backtester generated outputs
+backtester/reports/
+backtester/ai_integration/
+
+# ML / research-only tools (read on demand, not default context)
+app/tools/analyze_bucket_diagnostics.py
+app/tools/analyze_budget_bottlenecks.py
+app/tools/analyze_candidate_logs.py
+app/tools/analyze_core_bucket.py
+app/tools/analyze_selection_bottleneck.py
+app/tools/analyze_signal_dataset.py
+app/tools/analyze_signal_outcome_dataset.py
+app/tools/analyze_technical_feature_activation.py
+app/tools/apply_proposal.py
+app/tools/backtester_portability_report.py
+app/tools/build_backtest_dataset.py
+app/tools/build_ml_labels.py
+app/tools/build_ml_walkforward_splits.py
+app/tools/build_research_snapshot.py
+app/tools/check_recent_candidate_rows.py
+app/tools/compare_backtest_summaries.py
+app/tools/compare_ml_label_viability.py
+app/tools/compare_postrun_days.py
+app/tools/core_change_decision_report.py
+app/tools/export_backtest_result_summary.py
+app/tools/export_ml_candidate_dataset.py
+app/tools/export_signal_dataset.py
+app/tools/export_signal_outcome_dataset.py
+app/tools/generate_backtester_yaml_example.py
+app/tools/kis_api_sanity_check.py
+app/tools/merge_price_csvs.py
+app/tools/ml_research_common.py
+app/tools/operational_day_analysis.py
+app/tools/operational_day_diagnostics.py
+app/tools/overnight_tuning_report.py
+app/tools/parameter_change_simulation_report.py
+app/tools/parquet_utils.py
+app/tools/plan_universe_fetch.py
+app/tools/preopen_readiness_check.py
+app/tools/probe_overseas.py
+app/tools/proposal_constraints.py
+app/tools/proposal_generator.py
+app/tools/proposal_registry.py
+app/tools/rate_limit_guard.py
+app/tools/registry_trend_report.py
+app/tools/replay_cycles.py
+app/tools/run_ml_baseline_experiment.py
+app/tools/run_ml_label_baseline_batch.py
+app/tools/run_proposal_backtest.py
+app/tools/shadow_watch.py
+app/tools/validate_candidate_logs.py
+
+# AI/ML-heavy tests
+tests/test_ai_*
+tests/test_llm_cache_builder.py
+tests/test_model_routing.py
+tests/test_replay.py
+
+# Large config
+config/symbol_tags.yaml
+
+# Python / OS noise
+__pycache__/
+*.pyc
+.DS_Store
+.venv/

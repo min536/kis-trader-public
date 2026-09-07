@@ -1,0 +1,17 @@
+version: "1.0"
+metadata:
+  name: kis_trader_continuation_family_approx_score_guard_20260421
+  description: "Research-only score gate tuning preset derived from recent live logs (2026-04-16/17/21) and live50 backtest guardrail checks."
+  author: kis-trader
+  tags:
+    - kis-trader
+    - approximation
+    - backtester
+    - continuation_family
+    - score_tuning
+    - review_guard
+settings_overrides:
+  buy_rule_required_pass_count: 3
+  buy_rule_required_pass_count_core: 3
+  buy_min_score: 3.3
+  buy_min_score_core: 3.2

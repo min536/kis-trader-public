@@ -1,0 +1,1552 @@
+# Symbol tagging configuration for kis-trader.
+# Each symbol has a name (Korean) and a list of namespace:value tags.
+# See docs/symbol_tags.md for namespace definitions and validation rules.
+#
+# Symbols are grouped by their scan universe role:
+#   core       – always included in SCAN_SYMBOLS
+#   rotating   – periodically rotated in/out
+#   exploration – experimental / research candidates
+
+symbols:
+  # ── core (1-14) ──────────────────────────────────────────────────────────
+  "005930":
+    name: "삼성전자"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:semiconductor
+      - theme:ai
+      - theme:hbm
+      - cap:mega
+      - universe:core
+      - fit:momentum
+      - risk:cycle_sensitive
+
+  "000660":
+    name: "SK하이닉스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:semiconductor
+      - theme:ai
+      - theme:hbm
+      - cap:mega
+      - universe:core
+      - fit:momentum
+      - risk:cycle_sensitive
+
+  "005380":
+    name: "현대차"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:auto
+      - theme:ev
+      - cap:mega
+      - universe:core
+      - fit:trend_following
+      - risk:fx_sensitive
+
+  "000270":
+    name: "기아"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:auto
+      - theme:ev
+      - cap:large
+      - universe:core
+      - fit:trend_following
+      - risk:fx_sensitive
+
+  "035420":
+    name: "NAVER"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:internet
+      - theme:ai
+      - cap:mega
+      - universe:core
+      - fit:momentum
+
+  "035720":
+    name: "카카오"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:internet
+      - cap:large
+      - universe:core
+      - fit:mean_reversion
+
+  "105560":
+    name: "KB금융"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:low_pbr
+      - theme:dividend
+      - cap:mega
+      - universe:core
+      - fit:defensive
+      - risk:earnings_sensitive
+
+  "055550":
+    name: "신한지주"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:low_pbr
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+      - risk:earnings_sensitive
+
+  "086790":
+    name: "하나금융지주"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:low_pbr
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+
+  "028260":
+    name: "삼성물산"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - theme:low_pbr
+      - cap:large
+      - universe:core
+
+  "066570":
+    name: "LG전자"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:semiconductor
+      - cap:large
+      - universe:core
+      - risk:fx_sensitive
+
+  "068270":
+    name: "셀트리온"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - theme:bio_cdmo
+      - cap:large
+      - universe:core
+      - fit:momentum
+      - risk:news_sensitive
+
+  "138040":
+    name: "메리츠금융지주"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:momentum
+
+  "000810":
+    name: "삼성화재"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:insurance
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+
+  # ── rotating (15-27) ─────────────────────────────────────────────────────
+  "316140":
+    name: "우리금융지주"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:low_pbr
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+
+  "012450":
+    name: "한화에어로스페이스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:defense
+      - theme:defense_export
+      - cap:large
+      - universe:core
+      - fit:momentum
+      - risk:theme_spike
+
+  "329180":
+    name: "HD현대중공업"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - theme:shipbuilding_cycle
+      - cap:large
+      - universe:core
+      - fit:trend_following
+      - risk:cycle_sensitive
+
+  "267260":
+    name: "HD현대일렉트릭"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - theme:shipbuilding_cycle
+      - cap:large
+      - universe:core
+      - fit:momentum
+      - risk:theme_spike
+
+  "009540":
+    name: "HD한국조선해양"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - theme:shipbuilding_cycle
+      - cap:large
+      - universe:core
+      - fit:trend_following
+      - risk:cycle_sensitive
+
+  "034020":
+    name: "두산에너빌리티"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:energy
+      - theme:nuclear
+      - cap:large
+      - universe:core
+      - fit:momentum
+      - risk:theme_spike
+
+  "024110":
+    name: "기업은행"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:low_pbr
+      - theme:dividend
+      - cap:mid
+      - universe:core
+      - fit:defensive
+
+  "402340":
+    name: "SK스퀘어"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - theme:low_pbr
+      - cap:large
+      - universe:core
+
+  "051910":
+    name: "LG화학"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - theme:secondary_battery
+      - cap:large
+      - universe:core
+      - risk:cycle_sensitive
+
+  "032830":
+    name: "삼성생명"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:insurance
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+
+  "017670":
+    name: "SK텔레콤"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:telecom
+      - theme:ai
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+
+  "030200":
+    name: "KT"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:telecom
+      - theme:dividend
+      - cap:large
+      - universe:core
+      - fit:defensive
+
+  "047810":
+    name: "한국항공우주"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:defense
+      - theme:defense_export
+      - cap:large
+      - universe:core
+      - fit:momentum
+      - risk:theme_spike
+
+  # ── exploration (28-36) ──────────────────────────────────────────────────
+  "010140":
+    name: "삼성중공업"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - theme:shipbuilding_cycle
+      - cap:mid
+      - universe:extended
+      - fit:momentum
+      - risk:cycle_sensitive
+
+  "003670":
+    name: "포스코퓨처엠"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:battery
+      - theme:secondary_battery
+      - cap:large
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "196170":
+    name: "알테오젠"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:bio
+      - theme:bio_cdmo
+      - cap:large
+      - universe:extended
+      - fit:momentum
+      - risk:news_sensitive
+      - risk:theme_spike
+
+  "247540":
+    name: "에코프로비엠"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:battery
+      - theme:secondary_battery
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+      - risk:theme_spike
+
+  "373220":
+    name: "LG에너지솔루션"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:battery
+      - theme:secondary_battery
+      - theme:ev
+      - cap:mega
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "011200":
+    name: "HMM"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - cap:large
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "161390":
+    name: "한국타이어앤테크놀로지"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:auto
+      - cap:mid
+      - universe:extended
+
+  "307950":
+    name: "현대오토에버"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "069500":
+    name: "KODEX 200"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - cap:mega
+      - universe:extended
+      - fit:defensive
+
+  # ── full154 확장 (backtesting universe) ──────────────────────────────────
+  # 아래 종목은 run_full154_fetch.sh의 154개 backtesting universe에 포함되나
+  # 기존 36개 scan universe에는 없던 종목입니다.
+  # 확신 가능한 종목은 sector/theme/cap을 채우고,
+  # 확신 어려운 종목은 sector:etc, universe:extended만 부여합니다.
+
+  "000080":
+    name: "하이트진로"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:mid
+      - universe:extended
+
+  "000100":
+    name: "유한양행"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - cap:large
+      - universe:extended
+
+  "000120":
+    name: "CJ대한통운"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "000150":
+    name: "두산"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - cap:mid
+      - universe:extended
+
+  "000720":
+    name: "현대건설"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:construction
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "000880":
+    name: "한화"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - theme:defense_export
+      - cap:large
+      - universe:extended
+
+  "001040":
+    name: "CJ"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - cap:mid
+      - universe:extended
+
+  "001450":
+    name: "현대해상"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:insurance
+      - theme:dividend
+      - cap:mid
+      - universe:extended
+
+  "001680":
+    name: "대상"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:small
+      - universe:extended
+
+  "002380":
+    name: "KCC"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:mid
+      - universe:extended
+
+  "002790":
+    name: "아모레퍼시픽홀딩스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:cosmetic
+      - theme:cosmetic_export
+      - cap:mid
+      - universe:extended
+
+  "003230":
+    name: "삼양식품"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - theme:cosmetic_export
+      - cap:mid
+      - universe:extended
+
+  "003490":
+    name: "대한항공"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:large
+      - universe:extended
+
+  "003550":
+    name: "LG"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - cap:large
+      - universe:extended
+
+  "004000":
+    name: "롯데정밀화학"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:small
+      - universe:extended
+
+  "004170":
+    name: "신세계"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:retail
+      - cap:mid
+      - universe:extended
+
+  "004370":
+    name: "농심"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:mid
+      - universe:extended
+
+  "005180":
+    name: "빙그레"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:small
+      - universe:extended
+
+  "005490":
+    name: "POSCO홀딩스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:steel
+      - theme:secondary_battery
+      - cap:mega
+      - universe:extended
+      - risk:commodity_sensitive
+
+  "005940":
+    name: "NH투자증권"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:securities
+      - cap:mid
+      - universe:extended
+
+  "006260":
+    name: "LS"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "006360":
+    name: "GS건설"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:construction
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "006400":
+    name: "삼성SDI"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:battery
+      - theme:secondary_battery
+      - theme:ev
+      - cap:large
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "006800":
+    name: "미래에셋증권"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:securities
+      - cap:mid
+      - universe:extended
+
+  "007310":
+    name: "오뚜기"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:mid
+      - universe:extended
+
+  "008770":
+    name: "호텔신라"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:retail
+      - theme:china_consumption
+      - cap:mid
+      - universe:extended
+
+  "009150":
+    name: "삼성전기"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:semiconductor
+      - cap:large
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "009830":
+    name: "한화솔루션"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - theme:hydrogen
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "010060":
+    name: "OCI홀딩스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:mid
+      - universe:extended
+
+  "010130":
+    name: "고려아연"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:steel
+      - cap:large
+      - universe:extended
+
+  "010950":
+    name: "S-Oil"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:energy
+      - cap:large
+      - universe:extended
+      - risk:commodity_sensitive
+
+  "011170":
+    name: "롯데케미칼"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "011210":
+    name: "현대위아"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:auto
+      - cap:mid
+      - universe:extended
+
+  "011780":
+    name: "금호석유화학"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:mid
+      - universe:extended
+      - risk:commodity_sensitive
+
+  "011790":
+    name: "SKC"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:mid
+      - universe:extended
+
+  "012330":
+    name: "현대모비스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:auto
+      - theme:ev
+      - cap:large
+      - universe:extended
+
+  "014680":
+    name: "한솔케미칼"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:chemical
+      - cap:mid
+      - universe:extended
+
+  "015760":
+    name: "한국전력"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:energy
+      - theme:nuclear
+      - cap:mega
+      - universe:extended
+
+  "016360":
+    name: "삼성증권"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:securities
+      - cap:mid
+      - universe:extended
+
+  "018260":
+    name: "삼성에스디에스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:internet
+      - theme:ai
+      - cap:large
+      - universe:extended
+
+  "018880":
+    name: "한온시스템"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:auto
+      - theme:ev
+      - cap:mid
+      - universe:extended
+
+  "021240":
+    name: "코웨이"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "023530":
+    name: "롯데쇼핑"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:retail
+      - cap:mid
+      - universe:extended
+
+  "028050":
+    name: "삼성E&A"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:construction
+      - cap:mid
+      - universe:extended
+
+  "028300":
+    name: "HLB"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:bio
+      - cap:large
+      - universe:extended
+      - risk:news_sensitive
+      - risk:theme_spike
+
+  "032640":
+    name: "LG유플러스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:telecom
+      - theme:dividend
+      - cap:mid
+      - universe:extended
+
+  "033780":
+    name: "KT&G"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - theme:dividend
+      - cap:large
+      - universe:extended
+      - fit:defensive
+
+  "034220":
+    name: "LG디스플레이"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:semiconductor
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "034230":
+    name: "파라다이스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:entertainment
+      - cap:small
+      - universe:extended
+
+  "034730":
+    name: "SK"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - cap:mega
+      - universe:extended
+
+  "035250":
+    name: "강원랜드"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:entertainment
+      - cap:mid
+      - universe:extended
+
+  "035900":
+    name: "JYP Ent."
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:entertainment
+      - theme:entertainment_ip
+      - cap:mid
+      - universe:extended
+
+  "036460":
+    name: "한국가스공사"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:energy
+      - cap:mid
+      - universe:extended
+
+  "036570":
+    name: "NC"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:game
+      - cap:mid
+      - universe:extended
+
+  "036830":
+    name: "솔브레인홀딩스"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:etc
+      - cap:small
+      - universe:extended
+
+  "039030":
+    name: "이오테크닉스"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:semiconductor
+      - cap:mid
+      - universe:extended
+
+  "039490":
+    name: "키움증권"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:securities
+      - cap:mid
+      - universe:extended
+
+  "041510":
+    name: "에스엠"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:entertainment
+      - theme:entertainment_ip
+      - cap:mid
+      - universe:extended
+
+  "042660":
+    name: "한화오션"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - theme:shipbuilding_cycle
+      - cap:large
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "042700":
+    name: "한미반도체"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:semiconductor
+      - theme:ai
+      - theme:hbm
+      - cap:mid
+      - universe:extended
+
+  "047040":
+    name: "대우건설"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:construction
+      - cap:mid
+      - universe:extended
+
+  "047050":
+    name: "포스코인터내셔널"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "051600":
+    name: "한전KPS"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:energy
+      - theme:nuclear
+      - cap:small
+      - universe:extended
+
+  "051900":
+    name: "LG생활건강"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:cosmetic
+      - theme:cosmetic_export
+      - cap:large
+      - universe:extended
+
+  "053800":
+    name: "안랩"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:internet
+      - cap:small
+      - universe:extended
+
+  "057050":
+    name: "현대홈쇼핑"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "058470":
+    name: "리노공업"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:semiconductor
+      - cap:mid
+      - universe:extended
+
+  "064350":
+    name: "현대로템"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:defense
+      - theme:defense_export
+      - cap:mid
+      - universe:extended
+
+  "064400":
+    name: "LG씨엔에스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:small
+      - universe:extended
+
+  "066970":
+    name: "엘앤에프"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:battery
+      - theme:secondary_battery
+      - cap:mid
+      - universe:extended
+      - risk:cycle_sensitive
+
+  "069620":
+    name: "대웅제약"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - cap:mid
+      - universe:extended
+
+  "069960":
+    name: "현대백화점"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:retail
+      - cap:mid
+      - universe:extended
+
+  "071050":
+    name: "한국금융지주"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - theme:dividend
+      - cap:large
+      - universe:extended
+
+  "078930":
+    name: "GS"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:holding
+      - cap:large
+      - universe:extended
+
+  "079550":
+    name: "LIG디펜스앤에어로스페이스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:defense
+      - theme:defense_export
+      - cap:mid
+      - universe:extended
+
+  "082740":
+    name: "한화엔진"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:shipbuilding
+      - cap:small
+      - universe:extended
+
+  "086280":
+    name: "현대글로비스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:large
+      - universe:extended
+
+  "086520":
+    name: "에코프로"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:battery
+      - theme:secondary_battery
+      - cap:mid
+      - universe:extended
+      - risk:theme_spike
+
+  "086900":
+    name: "메디톡스"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:bio
+      - theme:obesity
+      - cap:small
+      - universe:extended
+
+  "088350":
+    name: "한화생명"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:insurance
+      - cap:mid
+      - universe:extended
+
+  "090430":
+    name: "아모레퍼시픽"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:cosmetic
+      - theme:cosmetic_export
+      - cap:mid
+      - universe:extended
+
+  "091160":
+    name: "KODEX 반도체"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "091180":
+    name: "KODEX 자동차"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "096770":
+    name: "SK이노베이션"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:energy
+      - cap:large
+      - universe:extended
+      - risk:commodity_sensitive
+
+  "097950":
+    name: "CJ제일제당"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:large
+      - universe:extended
+
+  "102110":
+    name: "TIGER 200"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "103140":
+    name: "풍산"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:steel
+      - cap:mid
+      - universe:extended
+      - risk:commodity_sensitive
+
+  "117700":
+    name: "KODEX 건설"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "122630":
+    name: "KODEX 레버리지"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+      - risk:leveraged
+      - risk:derivative
+
+  "128940":
+    name: "한미약품"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - cap:mid
+      - universe:extended
+
+  "131970":
+    name: "두산테스나"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:semiconductor
+      - cap:small
+      - universe:extended
+
+  "139260":
+    name: "TIGER 200 IT"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "139480":
+    name: "이마트"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:retail
+      - cap:mid
+      - universe:extended
+
+  "145020":
+    name: "휴젤"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:bio
+      - theme:cosmetic_export
+      - cap:mid
+      - universe:extended
+
+  "157490":
+    name: "TIGER 소프트웨어"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "185750":
+    name: "종근당"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - cap:mid
+      - universe:extended
+
+  "192820":
+    name: "코스맥스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:small
+      - universe:extended
+
+  "207940":
+    name: "삼성바이오로직스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - theme:bio_cdmo
+      - cap:mega
+      - universe:extended
+
+  "214150":
+    name: "클래시스"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:bio
+      - cap:mid
+      - universe:extended
+
+  "227540":
+    name: "TIGER 200 헬스케어"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "229200":
+    name: "KODEX 코스닥150"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "233740":
+    name: "KODEX 코스닥150레버리지"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+      - risk:leveraged
+      - risk:derivative
+
+  "240810":
+    name: "원익IPS"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:etc
+      - cap:small
+      - universe:extended
+
+  "241560":
+    name: "두산밥캣"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:etc
+      - cap:mid
+      - universe:extended
+
+  "251270":
+    name: "넷마블"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:game
+      - cap:mid
+      - universe:extended
+
+  "259960":
+    name: "크래프톤"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:game
+      - cap:large
+      - universe:extended
+
+  "261220":
+    name: "KODEX WTI원유선물(H)"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+      - risk:derivative
+      - risk:commodity_sensitive
+
+  "271560":
+    name: "오리온"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:food
+      - cap:mid
+      - universe:extended
+
+  "272210":
+    name: "한화시스템"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:defense
+      - theme:defense_export
+      - cap:mid
+      - universe:extended
+
+  "278540":
+    name: "KODEX MSCI Korea TR"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "293490":
+    name: "카카오게임즈"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:game
+      - cap:mid
+      - universe:extended
+
+  "302440":
+    name: "SK바이오사이언스"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - cap:mid
+      - universe:extended
+
+  "305540":
+    name: "TIGER 2차전지테마"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "305720":
+    name: "KODEX 2차전지산업"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "310970":
+    name: "TIGER MSCI Korea TR"
+    tags:
+      - market:kospi
+      - asset:etf
+      - sector:etc
+      - universe:extended
+
+  "323410":
+    name: "카카오뱅크"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:finance
+      - cap:mid
+      - universe:extended
+
+  "326030":
+    name: "SK바이오팜"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:bio
+      - cap:mid
+      - universe:extended
+
+  "352820":
+    name: "하이브"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:entertainment
+      - theme:entertainment_ip
+      - cap:large
+      - universe:extended
+
+  "357780":
+    name: "솔브레인"
+    tags:
+      - market:kosdaq
+      - asset:stock
+      - sector:etc
+      - cap:small
+      - universe:extended
+
+  "377300":
+    name: "카카오페이"
+    tags:
+      - market:kospi
+      - asset:stock
+      - sector:internet
+      - cap:mid
+      - universe:extended

@@ -1,0 +1,8 @@
+# Runtime (production) dependencies only — what the trading bot imports at run time.
+# Dev/test tooling: requirements-dev.txt. Exact reproducible pins: constraints.txt.
+# Reproducible install:  pip install -r requirements-dev.txt -c constraints.txt
+pandas>=2.2,<3.0
+numpy>=2.0,<3.0
+pyarrow>=16,<24
+PyYAML>=6.0,<7.0
+slack_sdk>=3.31,<4.0

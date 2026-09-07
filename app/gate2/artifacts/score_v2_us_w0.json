@@ -1,0 +1,32 @@
+{
+  "buy_threshold": 60.0,
+  "normalization_caps": {
+    "cost_quality": 0.35,
+    "diversification_bonus": 0.15,
+    "macd_momentum": 0.2,
+    "mean_reversion": 0.3,
+    "portfolio_correlation_penalty": 0.37,
+    "trend_alignment": 0.35,
+    "variance_increase_penalty": 0.5,
+    "velocity_bonus": 0.2,
+    "velocity_penalty": 0.2
+  },
+  "version": "score_v2_us_w0",
+  "weights": {
+    "controlled_down_quality_score": 1.0,
+    "cost_quality_score": 0.5,
+    "gap_down_quality_score": 1.0,
+    "liquidity_score": 0.25,
+    "macd_momentum_score": 0.5,
+    "mean_reversion_score": 0.5,
+    "portfolio_diversification_score": 0.5,
+    "price_velocity_score": 0.5,
+    "pullback_strength_score": 1.0,
+    "range_recovery_score": 1.0,
+    "rebound_strength_score": 1.0,
+    "trend_alignment_score": 0.5,
+    "volatility_risk_score": 0.5,
+    "volume_power_score": 1.0,
+    "volume_rank_score": 1.0
+  }
+}

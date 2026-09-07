@@ -1,0 +1,96 @@
+version: "1.0"
+metadata:
+  name: kis_trader_continuation_family_approx_tuned_strict
+  description: "Research-only continuation tuning that tightens RSI and extension gates to prioritize cleaner continuation entries."
+  author: kis-trader
+  tags:
+    - kis-trader
+    - approximation
+    - backtester
+    - continuation_family
+    - tuning
+    - strict
+strategy:
+  id: kis_trader_continuation_family_approx_tuned_strict
+  category: trend
+  indicators:
+    -
+      id: price
+      alias: close
+      params: {}
+      output: close
+    -
+      id: ema
+      alias: ema_20
+      params:
+        period: 20
+      output: value
+    -
+      id: sma
+      alias: sma_50
+      params:
+        period: 50
+      output: value
+    -
+      id: rsi
+      alias: rsi_14
+      params:
+        period: 14
+      output: value
+  entry:
+    logic: AND
+    conditions:
+      -
+        indicator: close
+        operator: greater_than
+        compare_to: ema_20
+        output: close
+        compare_output: value
+      -
+        indicator: ema_20
+        operator: greater_than
+        compare_to: sma_50
+        output: value
+        compare_output: value
+      -
+        indicator: rsi_14
+        operator: greater_equal
+        value: 55
+        output: value
+      -
+        indicator: rsi_14
+        operator: less_equal
+        value: 68
+        output: value
+      -
+        indicator: close
+        operator: less_equal
+        compare_to: ema_20
+        compare_output: value
+        compare_scalar: 1.06
+        compare_operation: mul
+        output: close
+  exit:
+    logic: OR
+    conditions:
+      -
+        indicator: close
+        operator: less_than
+        compare_to: ema_20
+        output: close
+        compare_output: value
+      -
+        indicator: rsi_14
+        operator: less_than
+        value: 48
+        output: value
+risk:
+  stop_loss:
+    enabled: true
+    percent: 4.0
+  take_profit:
+    enabled: true
+    percent: 8.5
+  trailing_stop:
+    enabled: true
+    percent: 3.0

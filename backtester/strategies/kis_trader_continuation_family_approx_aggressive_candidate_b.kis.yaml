@@ -1,0 +1,26 @@
+version: "1.0"
+metadata:
+  name: kis_trader_continuation_family_approx_aggressive_candidate_b
+  description: "Research-only conservative narrowing of aggressive candidate B on the continuation approximation baseline."
+  author: kis-trader
+  tags:
+    - kis-trader
+    - approximation
+    - backtester
+    - continuation_family
+    - aggressive
+    - candidate_b
+risk:
+  stop_loss:
+    enabled: true
+    percent: 4.0
+  take_profit:
+    enabled: true
+    percent: 8.5
+  trailing_stop:
+    enabled: true
+    percent: 3.0
+settings_overrides:
+  buy_rule_required_pass_count: 2
+  buy_min_score: 3.35
+  buy_max_budget_per_trade_krw: 30000000

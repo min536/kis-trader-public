@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- NOTE: this .example is a TEMPLATE ONLY. Loading/kickstarting the job is an
+       operator decision (agents never run launchctl). To install, copy this file
+       with __REPLACE_WITH_PROJECT_DIR__ substituted, then:
+         launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.kis-trader.morning-briefing.plist
+       The briefing is a read-only, offline disk assembler — it makes NO broker,
+       DART, or network calls; it only reads persisted artifacts from the data dir. -->
+  <key>Label</key>
+  <string>com.kis-trader.morning-briefing</string>
+
+  <key>WorkingDirectory</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__REPLACE_WITH_PROJECT_DIR__/.venv/bin/python</string>
+    <string>-m</string>
+    <string>app.tools.morning_briefing_report</string>
+    <string>--slack</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <false/>
+  <!-- KeepAlive=false: a one-shot pre-open report, not a resident process. -->
+  <key>KeepAlive</key>
+  <false/>
+
+  <!-- Weekdays (Mon..Fri) at 08:35 KST — after the ~08:30 morning regime pick,
+       before the 08:55 session start. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>35</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>35</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>35</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>35</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>35</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__/reports/launchd/morning-briefing.out</string>
+  <key>StandardErrorPath</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__/reports/launchd/morning-briefing.err</string>
+</dict>
+</plist>

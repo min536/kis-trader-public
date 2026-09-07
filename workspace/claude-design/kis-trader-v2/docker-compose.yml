@@ -1,0 +1,16 @@
+services:
+  ops-console:
+    container_name: kis-trader-ops-console
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kis-trader-ops-console:latest
+    ports:
+      - "4173:4173"
+    environment:
+      PORT: "4173"
+      KIS_TRADER_ROOT: /workspace
+      PYTHONPATH: /workspace
+    volumes:
+      - ../../..:/workspace:ro
+    command: ["python", "workspace/claude-design/kis-trader-v2/server.py"]

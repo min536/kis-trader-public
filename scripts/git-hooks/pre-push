@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Pre-push regression gate for kis-trader (BP-15 S3 / master_blueprint §16 F-01).
+#
+# DORMANT until the operator opts in — this file does nothing until you run:
+#     git config core.hooksPath scripts/git-hooks
+# (undo with:  git config --unset core.hooksPath). Activation is an operator
+# decision; an agent session must not enable it.
+#
+# On `git push`, runs the full test suite from the repo root and blocks the push
+# if anything fails. Bypass in a genuine emergency with:
+#     SKIP_PREPUSH_TESTS=1 git push
+set -euo pipefail
+
+if [[ "${SKIP_PREPUSH_TESTS:-0}" == "1" ]]; then
+  echo "pre-push: SKIP_PREPUSH_TESTS=1 set — skipping the test gate." >&2
+  exit 0
+fi
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+PY=".venv/bin/python"
+if [[ ! -x "$PY" ]]; then
+  echo "pre-push: $PY not found. Create the venv and install requirements-dev.txt first." >&2
+  echo "pre-push: (or bypass once with SKIP_PREPUSH_TESTS=1 git push)" >&2
+  exit 1
+fi
+
+echo "pre-push: running full test suite (SKIP_PREPUSH_TESTS=1 to bypass)…" >&2
+if "$PY" -m pytest -q; then
+  echo "pre-push: suite green — push allowed." >&2
+  exit 0
+else
+  echo "pre-push: suite RED — push blocked. Fix tests or bypass explicitly." >&2
+  exit 1
+fi

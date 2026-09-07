@@ -1,0 +1,148 @@
+# Autotuner parameter whitelist & bounds — single source of truth.
+#
+# DESIGN/PHASE-0 DATA. This file is consumed ONLY by the pure proposal validator
+# (app/autotuner/validator.py). Nothing in app.main or the session loop reads it.
+# Source of truth for the numbers/tiers: docs/live_autotuner_whitelist_bounds.md.
+#
+# Tier C bounds are intentionally null (blocked: true) until risk review fills
+# them in — "blocked" is the safe default for high-risk sizing parameters.
+schema_version: "0.1.0"
+
+parameters:
+  # --- Tier A: low-risk / Phase 3 earliest ---
+  scan_symbols_max_per_cycle:
+    tier: A
+    type: int
+    eligible_phase: 3
+    bound_min: 15
+    bound_max: 40        # hard startup-sanity ceiling (settings.py ~L434)
+    max_step: 5
+    blocked: false
+  buy_scan_deep_eval_limit:
+    tier: A
+    type: int
+    eligible_phase: 3
+    bound_min: 2
+    bound_max: 8
+    max_step: 1
+    blocked: false
+  buy_scan_shallow_top_k:
+    tier: A
+    type: int
+    eligible_phase: 3
+    bound_min: 5
+    bound_max: 20
+    max_step: 2
+    blocked: false
+  buy_scan_interval_seconds:
+    tier: A
+    type: int
+    eligible_phase: 3
+    bound_min: 180       # stays above hard guardrail >=150 (settings.py ~L429)
+    bound_max: 600
+    max_step: 30
+    blocked: false
+  sell_check_interval_seconds:
+    tier: A
+    type: int
+    eligible_phase: 3
+    bound_min: 30
+    bound_max: 120
+    max_step: 10
+    blocked: false
+  sell_watch_max_holdings_per_tick:
+    tier: A
+    type: int
+    eligible_phase: 3
+    bound_min: null      # base default unconfirmed (TBD) — keep blocked
+    bound_max: null
+    max_step: 1
+    blocked: true
+
+  # --- Tier B: medium-risk / later approved ---
+  rebuy_cooldown_minutes:
+    tier: B
+    type: int
+    eligible_phase: 4
+    bound_min: 15
+    bound_max: 240
+    max_step: 15
+    blocked: false
+  same_symbol_max_buys_per_day:
+    tier: B
+    type: int
+    eligible_phase: 4
+    bound_min: 1
+    bound_max: 5
+    max_step: 1
+    blocked: false
+  math_multiplier:
+    tier: B
+    type: float
+    eligible_phase: 4
+    bound_min: null      # not a settings.py value (sizing.py) — TBD, keep blocked
+    bound_max: null
+    max_step: null
+    blocked: true
+
+  # --- Tier C: high-risk / blocked until strong evidence + risk review ---
+  buy_max_account_exposure_pct:
+    tier: C
+    type: float
+    eligible_phase: null
+    bound_min: null
+    bound_max: null
+    max_step: null
+    blocked: true
+  buy_max_budget_per_trade_krw:
+    tier: C
+    type: int
+    eligible_phase: null
+    bound_min: null
+    bound_max: null
+    max_step: null
+    blocked: true
+  buy_max_qty_per_trade:
+    tier: C
+    type: int
+    eligible_phase: null
+    bound_min: null
+    bound_max: null
+    max_step: null
+    blocked: true
+  buy_daily_max_order_submissions:
+    tier: C
+    type: int
+    eligible_phase: null
+    bound_min: null
+    bound_max: null
+    max_step: null
+    blocked: true
+
+# Tier D — forbidden for the autotuner. Never eligible, regardless of evidence.
+# Any change targeting one of these names (or matching a forbidden category) is a
+# hard reject. Names are illustrative anchors; category rules below cover the rest.
+forbidden_tier_d:
+  - kis_env
+  - kis_base_url
+  - account
+  - account_no
+  - cano
+  - app_key
+  - app_secret
+  - token
+  - token_path
+
+forbidden_tier_d_categories:
+  - credentials
+  - account_identifiers
+  - broker_base_urls
+  - token_paths
+  - env_or_mode_switch
+  - order_side_forcing
+  - risk_guard_disable
+  - order_guard_disable
+  - reconciliation_disable
+  - runtime_state_trust_disable
+  - security_hardening_disable
+  - session_lock

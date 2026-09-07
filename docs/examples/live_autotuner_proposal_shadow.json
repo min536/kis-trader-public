@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "proposal_id": "atp_20260603_shadow_0007",
+  "created_at": "2026-06-03T11:40:00+09:00",
+  "generated_by": {
+    "kind": "mcp_assisted_evaluator",
+    "name": "candidate_generator+run_proposal_backtest",
+    "version": "0.0.0-dev"
+  },
+  "mode": "shadow",
+  "status": "pending_review",
+  "reason": "Shadow-evaluate slightly slower sell cadence plus modestly deeper eval, to check whether candidate quality improves without raising request pressure. Not applied to live.",
+  "evidence": [
+    {
+      "source_type": "backtest",
+      "source_id": "bt_run_20260603_114012",
+      "source_path": "results/backtests/bt_run_20260603_114012.json",
+      "generated_at": "2026-06-03T11:40:12+09:00",
+      "summary": "Proxy backtest via open-trading-api REST (/api/backtest/run-custom): candidate set scored marginally higher fill quality at deep_eval=6 vs 4.",
+      "limitations": "Lean DSL / preset strategy engine, NOT app/strategy live engine. Proxy evidence only; does not replay live buy/sell decision code.",
+      "confidence": "low",
+      "notes": "Single run; no parameter sweep yet."
+    },
+    {
+      "source_type": "live_log",
+      "source_id": "reconstruct_20260602",
+      "source_path": "data/backtest/reconstruct_20260602.jsonl",
+      "generated_at": "2026-06-03T09:30:00+09:00",
+      "summary": "app/backtest reconstruction over 2026-06-02 live signal logs: deeper eval would have re-ranked 3 candidates; no sell-miss introduced by slower sell interval at this cap.",
+      "limitations": "Log reconstruction, not live strategy replay. Single session.",
+      "confidence": "low",
+      "notes": "Cross-validation pass; more sessions required before any live-eligible approval."
+    }
+  ],
+  "baseline": {
+    "baseline_id": "settings_session_20260603",
+    "captured_at": "2026-06-03T09:00:00+09:00",
+    "source": "app/auth/settings.py + config/regular_session.env (read-only)",
+    "values": {
+      "sell_check_interval_seconds": 35,
+      "buy_scan_deep_eval_limit": 4,
+      "buy_scan_shallow_top_k": 10,
+      "scan_symbols_max_per_cycle": 30
+    }
+  },
+  "changes": [
+    {
+      "parameter": "sell_check_interval_seconds",
+      "from_value": 35,
+      "to_value": 45,
+      "type": "int",
+      "risk_tier": "A",
+      "eligible_phase": 3,
+      "bound_min": 30,
+      "bound_max": 120,
+      "max_step": 10,
+      "validation_status": "passed",
+      "rationale": "Slower sell cadence to reduce request pressure; within Tier A bounds; step = 10 == max_step.",
+      "notes": "Cross-constraint #5: not paired with any reduction of sell_watch_max_holdings_per_tick."
+    },
+    {
+      "parameter": "buy_scan_deep_eval_limit",
+      "from_value": 4,
+      "to_value": 6,
+      "type": "int",
+      "risk_tier": "A",
+      "eligible_phase": 3,
+      "bound_min": 2,
+      "bound_max": 8,
+      "max_step": 1,
+      "validation_status": "failed",
+      "rationale": "Deeper evaluation of top candidates.",
+      "notes": "VALIDATION FAILURE shown intentionally: step is +2 but max_step=1. A real validator must reject this change; bundle cannot be approved until corrected."
+    }
+  ],
+  "constraints_checked": {
+    "whitelist_only": true,
+    "bounds": false,
+    "cross_parameter": true,
+    "single_active_bundle": true,
+    "checked_at": "2026-06-03T11:41:00+09:00",
+    "checker": "proposal_constraints@0.0.0-dev"
+  },
+  "risk_review": {
+    "required": false,
+    "status": "not_required_for_shadow",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": "Shadow mode is not applied to live; full risk review is required only before any live-eligible approval."
+  },
+  "approval": null,
+  "ttl": {
+    "ttl_seconds": 86400,
+    "expires_at": "2026-06-04T11:40:00+09:00"
+  },
+  "rollback": {
+    "rollback_baseline_id": "settings_session_20260603",
+    "rollback_required": false
+  },
+  "audit": {
+    "events": [
+      {
+        "at": "2026-06-03T11:40:00+09:00",
+        "actor": "candidate_generator",
+        "event": "created",
+        "detail": "shadow proposal generated from MCP-assisted backtest + live-log reconstruction"
+      },
+      {
+        "at": "2026-06-03T11:41:00+09:00",
+        "actor": "proposal_constraints",
+        "event": "validated",
+        "detail": "bounds check FAILED on buy_scan_deep_eval_limit (step +2 > max_step 1)"
+      }
+    ]
+  }
+}

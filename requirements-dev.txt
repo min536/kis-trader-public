@@ -1,0 +1,16 @@
+# Dev / test tooling. Also pulls in the runtime deps via -r below.
+#
+# WHY this file exists (BP-15 S1 / master_blueprint §16 F-02): setup.cfg's
+#   addopts = -p tdd_guard_pytest
+# forces pytest to load the tdd_guard_pytest plugin at startup, so the test
+# suite CANNOT START unless both pytest AND tdd-guard-pytest are installed.
+# Neither was declared anywhere, so a fresh clone + `pip install -r requirements.txt`
+# could not run a single test. Declaring them here fixes that.
+#
+# Reproducible install (exact pins):
+#   pip install -r requirements-dev.txt -c constraints.txt
+-r requirements.txt
+
+pytest>=9,<10
+tdd-guard-pytest>=0.1,<0.2
+requests>=2.32,<3.0   # tests/test_engine_backtest_fetch.py

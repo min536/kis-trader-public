@@ -1,0 +1,91 @@
+version: "1.0"
+metadata:
+  name: kis_trader_core_family_approx
+  description: "Approximate research-side core-family YAML inspired by kis-trader dip/recovery style entry ideas. This is for comparative backtest research only and is not a 1:1 live parity export."
+  author: kis-trader
+  tags:
+    - kis-trader
+    - approximation
+    - backtester
+    - core_family
+strategy:
+  id: kis_trader_core_family_approx
+  category: trend
+  indicators:
+    -
+      id: price
+      alias: close
+      params: {}
+      output: close
+    -
+      id: price
+      alias: open
+      params: {}
+      output: open
+    -
+      id: sma
+      alias: sma_20
+      params:
+        period: 20
+      output: value
+    -
+      id: sma
+      alias: sma_10
+      params:
+        period: 10
+      output: value
+    -
+      id: rsi
+      alias: rsi_14
+      params:
+        period: 14
+      output: value
+  entry:
+    logic: AND
+    conditions:
+      -
+        indicator: close
+        operator: greater_than
+        compare_to: sma_20
+        output: close
+        compare_output: value
+      -
+        indicator: close
+        operator: greater_than
+        compare_to: open
+        output: close
+        compare_output: open
+      -
+        indicator: rsi_14
+        operator: greater_equal
+        value: 48
+        output: value
+      -
+        indicator: rsi_14
+        operator: less_equal
+        value: 72
+        output: value
+  exit:
+    logic: OR
+    conditions:
+      -
+        indicator: close
+        operator: less_than
+        compare_to: sma_10
+        output: close
+        compare_output: value
+      -
+        indicator: rsi_14
+        operator: less_than
+        value: 42
+        output: value
+risk:
+  stop_loss:
+    enabled: true
+    percent: 3.5
+  take_profit:
+    enabled: true
+    percent: 7.0
+  trailing_stop:
+    enabled: true
+    percent: 2.5

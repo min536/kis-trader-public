@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.kis-trader.slack-bot</string>
+
+  <key>WorkingDirectory</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__REPLACE_WITH_PROJECT_DIR__/scripts/run_slack_bot.sh</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>KIS_ENV</key>
+    <string>mock</string>
+    <key>SLACK_CHANNEL_PROJECT_BACK_TESTER</key>
+    <string>__REPLACE_WITH_BACKTESTER_CHANNEL_ID__</string>
+    <key>OPEN_TRADING_API_ROOT</key>
+    <string>__REPLACE_WITH_OPEN_TRADING_API_ROOT__</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__/reports/launchd/slack-bot.out</string>
+  <key>StandardErrorPath</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__/reports/launchd/slack-bot.err</string>
+</dict>
+</plist>

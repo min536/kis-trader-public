@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- NOTE: this .example is a template, but the current canonical session
+       label is com.kis-trader.session. Restart/start the installed job with:
+       launchctl kickstart -k gui/$(id -u)/com.kis-trader.session
+       Legacy com.kistrades.regularsession may still be registered on old
+       machines; do not use it as the current regular-session restore target. -->
+  <key>Label</key>
+  <string>com.kis-trader.session</string>
+
+  <key>WorkingDirectory</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__REPLACE_WITH_PROJECT_DIR__/scripts/run_session.sh</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>KIS_ENV</key>
+    <string>mock</string>
+    <key>SLACK_BOT_SUPERVISOR_ENABLED_OVERRIDE</key>
+    <string>false</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <false/>
+  <!-- KeepAlive=false is INTENTIONAL: a crashed session must NOT be auto-restarted
+       by launchd, because an unattended restart mid-day could re-enter the trading
+       loop and risk duplicate orders. Recovery is an operator decision, not automatic. -->
+  <key>KeepAlive</key>
+  <false/>
+
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>55</integer></dict>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__/reports/launchd/session.out</string>
+  <key>StandardErrorPath</key>
+  <string>__REPLACE_WITH_PROJECT_DIR__/reports/launchd/session.err</string>
+</dict>
+</plist>
