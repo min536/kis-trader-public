@@ -267,14 +267,19 @@
       "sha256": "b495c0ebb9bb739341a3e08097656ffb2789fc6fc11af8aecbe57444caf21361"
     },
     {
+      "path": "LICENSE",
+      "kind": "file",
+      "sha256": "8e1d83eb79b2225a641d935e8470530c40aa37a29c98d85abca0f68673c83278"
+    },
+    {
       "path": "PUBLIC_RELEASE.md",
       "kind": "file",
-      "sha256": "4cd00fe4c4ad78d3b4abf93b7a5f33a352d2f53d973fabd070d221cd6111524e"
+      "sha256": "c66dfca2333667efa352756706076bad505f3dc877d14ff096097168a0874de8"
     },
     {
       "path": "README.md",
       "kind": "file",
-      "sha256": "e8f74296f011115cd11ea9881caf9abe161f1e2d5d18b3178a1c3867d61f7306"
+      "sha256": "374ba446db1de2854e48e29e88cf82030b5206d7f455e1a3e3b5ce267f0b4ff2"
     },
     {
       "path": "SECURITY.md",
@@ -284,7 +289,7 @@
     {
       "path": "THIRD_PARTY_NOTICES.md",
       "kind": "file",
-      "sha256": "d97808b453e4985b3b89de56c165a831f8a33f36c2de9784ce554f01fcbfb1f4"
+      "sha256": "22363b39cb1bef8605b2efd160bcad80ea5a1f786547719d060254d4cc510a2e"
     },
     {
       "path": "app/__init__.py",

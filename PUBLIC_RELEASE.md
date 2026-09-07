@@ -27,6 +27,6 @@ Content scanners and manifest verification reduce accidental disclosure; they ca
 
 Publishing source does not grant permission to redistribute broker/exchange data or operate a financial service. External API connections remain subject to provider terms and account eligibility. No provider assets or downloaded datasets are licensed by this project.
 
-The project has not chosen a general open-source license. This is a source-available snapshot; third-party components retain their own licenses. A repository owner's separate license decision must not override third-party rights.
+The project's own code and documentation are provided under the [MIT License](LICENSE). Third-party components retain their own licenses and notices, as described in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md); the project license does not relicense those components or grant rights to external data or services.
 
 For a future public upload, use this independent snapshot. Changing the original private repository's visibility would expose additional history and collaboration material outside this audit.

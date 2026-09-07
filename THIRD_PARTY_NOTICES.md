@@ -1,5 +1,7 @@
 # Third-party notices
 
+The project's own code and documentation use the [MIT License](LICENSE). The third-party components identified below retain their existing licenses and copyright notices; the root license does not replace them.
+
 ## Lucide / Feather icons
 
 The dashboard's 29 selected glyphs come from Lucide 0.468.0, commit `f12b0de177fbc2a6795e99be065887e72b237123`.
