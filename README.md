@@ -29,6 +29,8 @@ python3.13 -m venv .venv
 
 ## 합성 데이터 화면 미리보기
 
+기본 운영 화면은 **v2 Operator Site(기본 read-only UI)**입니다. 운영 서버 소스는 `workspace/claude-design/kis-trader-v2/server.py`에 있습니다. 기존 **Streamlit 대시보드**는 **폐기됨** 상태이며, 아래 공개 미리보기는 합성 데이터를 사용합니다.
+
 다음 명령은 정적 파일만 제공합니다. 계좌 연결이나 주문 처리가 없는 데모입니다.
 
 ```sh
