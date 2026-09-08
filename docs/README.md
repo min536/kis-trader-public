@@ -1,6 +1,8 @@
 # kis-trader Documentation Index
 
-Navigation map for all project documentation. Start here. (전면 재정리: 2026-07-03 — 완료/대체 문서 51건은 [OLD/](OLD/)로 이동)
+처음 방문했다면 [프로젝트 소개](../README.md), [API 사용 방식](API_USAGE.md), [설계 결정](DESIGN_DECISIONS.md), [공개 범위 검토](PUBLIC_SCOPE_AUDIT.md)부터 읽으세요.
+
+아래 색인은 기존 개발 문서를 보존한 목록입니다. 문서의 진행 상태·대기 작업은 작성 당시 기록이며, 공개본의 현재 실행 상태나 제공 기능을 보장하지 않습니다. (색인 정리: 2026-07-03)
 
 > **AI agents:** read [AI_AGENT_BRIEF.md](AI_AGENT_BRIEF.md) first.
 > Rule files live at the repo root: `CLAUDE.md`, `AGENTS.md`, `CODEX.md`.

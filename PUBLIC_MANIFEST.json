@@ -279,7 +279,7 @@
     {
       "path": "README.md",
       "kind": "file",
-      "sha256": "374ba446db1de2854e48e29e88cf82030b5206d7f455e1a3e3b5ce267f0b4ff2"
+      "sha256": "97dd486f9a85d4983f13e409c3d777256e3536a09836b931c15d1a85ae3b941e"
     },
     {
       "path": "SECURITY.md",
@@ -2417,6 +2417,11 @@
       "sha256": "bd3db5dba35a17526585df423b7fa7c47af6ec13c5651c31b5a8768c3644cec9"
     },
     {
+      "path": "docs/API_USAGE.md",
+      "kind": "file",
+      "sha256": "1ef7ab0b78cbf45383d929f4204be799ff1acc7af205e8eb80554f4f17e5dd52"
+    },
+    {
       "path": "docs/ARCHITECTURE.md",
       "kind": "file",
       "sha256": "94d5ccdbd4dfa741c6f22351b6e041af9f7a6cacb8fde6311814a5737e5d763e"
@@ -2425,6 +2430,11 @@
       "path": "docs/BACKTESTING.md",
       "kind": "file",
       "sha256": "30ad7132b71de5a8315af7b848bb35432c9572c3337d870d7c9edca6404576cc"
+    },
+    {
+      "path": "docs/DESIGN_DECISIONS.md",
+      "kind": "file",
+      "sha256": "069032ee43d69cc0fc650f64e8d163ac8944f550aeea3b2adcb62f3b09200919"
     },
     {
       "path": "docs/OLD/0611plan.md",
@@ -2677,9 +2687,14 @@
       "sha256": "e0c0ac53c7657a872ec6a550249c3f7f5d140e27bc018c14f1647c0ef16c5395"
     },
     {
+      "path": "docs/PUBLIC_SCOPE_AUDIT.md",
+      "kind": "file",
+      "sha256": "181cfa4ec4e95ae556ec409569b4e6e78f0c7f876c44a4d0590b91f1a412cd9a"
+    },
+    {
       "path": "docs/README.md",
       "kind": "file",
-      "sha256": "5f87f590efe27be43275d214a708712d4b0621fb4332a76be2b19eafb39ed9b8"
+      "sha256": "0dff72434453c16c122dafbe265a90d190dc2df91e8fffee130fb17ade70c6e9"
     },
     {
       "path": "docs/SLACK_ALERTS.md",
